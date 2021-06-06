@@ -1,4 +1,7 @@
 package base;
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
 /*
  *  UCF COP3330 Summer 2021 Assignment 1 Solution
  *  Copyright 2021 Scott Matson
@@ -37,4 +40,25 @@ Challenges
 */
 
 public class App {
+
+    private static final double f2tom2 = 0.09290304;
+
+    public static void main(String[] args) {
+        Scanner ui = new Scanner(System.in);
+
+        System.out.print("What is the length of the room in feet? ");
+        int length = ui.nextInt();
+
+        System.out.print("What is the width of the room in feet? ");
+        int width = ui.nextInt();
+
+        System.out.println("You entered dimensions of " + length + " feet by " + width + ".");
+
+        int area_feet = length * width;
+        double area_meters = area_feet * f2tom2;
+
+        DecimalFormat df = new DecimalFormat("####0.000");
+
+        System.out.println("The area is \n" + area_feet + " square feet \n" + df.format(area_meters) + " square meters");
+    }
 }
